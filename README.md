@@ -14,7 +14,7 @@ ITSM-NG is a GLPI fork with the objective of offering a strong community compone
 ### Add Helm repository
 
 ```bash
-helm repo add itsmng https://itsmng.github.io/helm-charts
+helm repo add itsmng https://chart.itsm-ng.org
 helm repo update
 ```
 

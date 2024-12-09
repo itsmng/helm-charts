@@ -1,0 +1,51 @@
+itsmweb:
+  replicas: 2
+
+  containerSecurityContext:
+    allowPrivilegeEscalation: false
+    privileged: false
+
+  ingress:
+    hostname: v2.k3s.itsm-ng.local
+  
+  database:
+    hostname: v2-mariadb-galera
+    user:
+      username: itsmng
+      password: itsmng
+    dbname: itsmng
+  
+  image:
+    repository: docker.io/itsmng/itsm-ng
+    tag: latest
+    pullPolicy: Always
+ 
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  type: ClusterIP
+
+  resources:
+    limits:
+      cpu: "1"
+      memory: "200Mi"
+    requests:
+      cpu: 500m
+      memory: "100Mi"
+
+  pvc:
+    itsmConfig:
+      storageRequest: 10Mi
+    itsmFiles:
+      storageRequest: 15Gi
+    itsmPlugin:
+      storageRequest: 15Gi
+
+# MariaDB Galera
+mariadb-galera:
+  replicaCount: 2
+  db:
+    name: "itsmng"
+    user: 'itsmng'
+    password: "itsmng"

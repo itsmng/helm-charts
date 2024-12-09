@@ -1,0 +1,31 @@
+apiVersion: v1
+entries:
+  itsm-ng:
+  - apiVersion: v2
+    appVersion: 2.0.2
+    created: "2024-12-09T15:47:37.393313465+01:00"
+    dependencies:
+    - name: mariadb-galera
+      repository: https://charts.bitnami.com/bitnami
+      version: 14.0.14
+    description: ITSM-NG Helm chart for Kubernetes
+    digest: d577058da3e9985b23014a0f9064406fb18593b929df39685e94c3a2659c6945
+    home: https://itsm-ng.com/
+    icon: https://wiki.itsm-ng.org/_assets/favicons/favicon-32x32.png
+    keywords:
+    - itsm
+    - assets
+    - helpdesk
+    - management
+    maintainers:
+    - email: florian.blanchet@itsm-ng.com
+      name: Florian Blanchet
+    name: itsm-ng
+    sources:
+    - https://github.com/itsmng/itsm-ng
+    - https://github.com/itsmng/itsmng-docker
+    type: application
+    urls:
+    - charts/itsm-ng-1.0.0.tgz
+    version: 1.0.0
+generated: "2024-12-09T15:47:37.373079699+01:00"

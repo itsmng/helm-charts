@@ -6,10 +6,11 @@ itsmweb:
     privileged: false
 
   ingress:
-    hostname: v2.k3s.itsm-ng.local
+    hostname: prod.k3s.itsm-ng.local
   
   database:
-    hostname: v2-mariadb-galera
+    # To use internal mariadb cluster use <release name>-mariadb-galera
+    hostname: prod-mariadb-galera
     user:
       username: itsmng
       password: itsmng
@@ -35,23 +36,23 @@ itsmweb:
       memory: "100Mi"
 
   pvc:
-    storageClassName: local-path
+    storageClassName: longhorn
 
     itsmConfig:
       storageRequest: 10Mi
     itsmFiles:
-      storageRequest: 15Gi
+      storageRequest: 512Mi
     itsmPlugin:
-      storageRequest: 15Gi
+      storageRequest: 512Mi
 
 # MariaDB Galera
 mariadb-galera:
+  enabled: true
   replicaCount: 2
   db:
     name: "itsmng"
     user: 'itsmng'
     password: "itsmng"
 
-
   global:
-    defaultStorageClass: local-path
+    defaultStorageClass: longhorn

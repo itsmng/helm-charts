@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: itsmng-cron
+spec:
+  schedule: "*/2 * * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: itsmng-cron
+        spec:
+          restartPolicy: OnFailure # Correctement défini au niveau du Pod
+          containers:
+          - name: itsmng-cron-cron
+            image: ghcr.io/itsmng/itsm-ng:latest-cron
+            imagePullPolicy: {{ .Values.itsmweb.image.pullPolicy }}
+            env:
+              - name: MARIADB_HOST
+                value: {{ .Values.itsmweb.database.hostname }}
+            volumeMounts:
+              - mountPath: /var/www/itsm-ng/config
+                name: itsm-config
+              - mountPath: /var/www/itsm-ng/files
+                name: itsm-files
+              - mountPath: /var/www/itsm-ng/plugins
+                name: itsm-plugin
+          volumes: # Placé au bon niveau
+          - name: itsm-config
+            persistentVolumeClaim:
+              claimName: {{ include "itsm-ng.fullname" . }}-config
+          - name: itsm-files
+            persistentVolumeClaim:
+              claimName: {{ include "itsm-ng.fullname" . }}-files
+          - name: itsm-plugin
+            persistentVolumeClaim:
+              claimName: {{ include "itsm-ng.fullname" . }}-plugin
+

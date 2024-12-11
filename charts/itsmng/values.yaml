@@ -36,14 +36,14 @@ itsmweb:
       memory: "100Mi"
 
   pvc:
-    storageClassName: longhorn
+    storageClassName: local-path
 
     itsmConfig:
       storageRequest: 10Mi
     itsmFiles:
-      storageRequest: 512Mi
+      storageRequest: 15Gi
     itsmPlugin:
-      storageRequest: 512Mi
+      storageRequest: 2Gi
 
 # MariaDB Galera
 mariadb-galera:
@@ -55,4 +55,4 @@ mariadb-galera:
     password: "itsmng"
 
   global:
-    defaultStorageClass: longhorn
+    defaultStorageClass: local-path

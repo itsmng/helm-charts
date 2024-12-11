@@ -11,7 +11,7 @@ entries:
     description: ITSM-NG Helm chart for Kubernetes
     digest: 55255ddbff8414f6aa36f35ea4b55da83a179d82256c6cd9b1fa40021bcb10c7
     home: https://itsm-ng.com/
-    icon: https://wiki.itsm-ng.org/_assets/favicons/favicon-32x32.png
+    icon: https://avatars.githubusercontent.com/u/97883427?s=200&v=4
     keywords:
     - itsm
     - assets

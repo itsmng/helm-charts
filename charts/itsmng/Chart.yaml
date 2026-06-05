@@ -15,8 +15,8 @@ sources:
   - https://github.com/itsmng/itsm-ng
   - https://github.com/itsmng/itsmng-docker
 maintainers:
-  - name: Florian Blanchet
-    email: florian.blanchet@itsm-ng.com
+  - name: ITSM SysTeam
+    email: support@itsm-ng.com
 dependencies:
   - name: mariadb-galera
     version: 14.0.14

@@ -19,6 +19,6 @@ maintainers:
     email: adminsys@itsm-ng.com
 dependencies:
   - name: mariadb-galera
-    version: 14.0.14
+    version: 16.0.1
     repository: https://charts.bitnami.com/bitnami
     condition: mariadb-galera.enabled

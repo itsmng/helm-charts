@@ -16,7 +16,7 @@ sources:
   - https://github.com/itsmng/itsmng-docker
 maintainers:
   - name: ITSM SysTeam
-    email: support@itsm-ng.com
+    email: adminsys@itsm-ng.com
 dependencies:
   - name: mariadb-galera
     version: 14.0.14
